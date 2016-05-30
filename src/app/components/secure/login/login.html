@@ -1,0 +1,22 @@
+<div class="login-wrap">
+    <section class="col-xs-4 col-xs-offset-4">
+        <h1>This is login</h1>
+        <form name="myForm" ng-submit="login(myForm.$valid)">
+            <div class="form-group" ng-class="{ 'has-error' : myForm.username.$invalid && myForm.username.$dirty }">
+                <!-- <label>Name*</label> -->
+                <input type="text" name="username" class="form-control" ng-model="user.username" placeholder="Please input username" required />
+                <p ng-show="myForm.username.$invalid && myForm.username.$dirty" class="help-block">username is required.</p>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error' : myForm.password.$invalid && myForm.password.$dirty }">
+                <input type="password" ng-model="user.password" name="password" class="form-control" placeholder="Please input password" required />
+                <p ng-show="myForm.password.$invalid && myForm.password.$dirty" class="help-block">password is required.</p>
+            </div>
+            <a ui-sref="secure.register" class="block">register</a>
+            <button type="submit" class="btn btn-default">Login</button>
+        </form>
+    </section>
+    <div class="col-sm-12">
+        <pre class="col-sm-6 no-border"><code>{{myForm.username | json }}</code></pre>
+        <pre class="col-sm-6 no-border"><code>{{myForm.password | json }}</code></pre>
+    </div>
+</div>

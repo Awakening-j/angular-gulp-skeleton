@@ -1,0 +1,46 @@
+<!-- header -->
+<header class="navbar navbar-static-top bs-docs-nav navbar-inverse" role="banner">
+    <div>
+        <div class="navbar-header">
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://github.com/Swiip/generator-gulp-angular">
+            <span class="glyphicon glyphicon-home"></span> Gulp Angular
+            </a>
+        </div>
+        <nav class="navbar-collapse bs-navbar-collapse collapse" aria-expanded="true">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                    <li ng-repeat="nav in navs" ng-class="{active: $state.current.name.includes(nav.state)}">
+                        <a ui-sref="{{nav.state}}">{{nav.label}}</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li ng-hide="user.username"><a ui-sref="secure.login" class="pull-right">Login</a></li>
+                    <li ng-show="user.username" class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{user.username}} <span class="caret"></span></a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="">Action</a></li>
+                        <li><a href="">Another action</a></li>
+                        <li><a href="">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a class="pointer" ng-click="logout()">Logout</a></li>
+                      </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+<!-- header end -->
+<!-- ng-view -->
+<div ui-view></div>
+<!-- ng-view end -->
+<!-- footer -->
+<footer>
+</footer>
+<!-- footer end -->

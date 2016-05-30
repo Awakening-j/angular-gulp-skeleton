@@ -1,0 +1,18 @@
+.dashboard-wrap {
+	.grid {
+	  height: 480px;
+	}
+
+	.ui-grid-menu-button {
+	  height: 31px;
+	}
+
+	.ui-grid-row.ui-grid-row-selected > [ui-grid-row] > .ui-grid-cell {
+		background: none;
+	}
+
+
+	#chart {
+	    height: 240px;
+	}
+}

@@ -1,0 +1,41 @@
+<div class="register-wrap">
+    <section class="col-xs-4 col-xs-offset-4">
+        <h1>This is register</h1>
+        <form name="myForm" class="form-horizontal" ng-submit="register(myForm.$valid)">
+            <div class="form-group" ng-class="{ 'has-error' : myForm.email.$invalid && myForm.email.$dirty }">
+                <label class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-10">
+                    <input type="text" name="email" class="form-control" ng-model="user.email" placeholder="Please input email" required />
+                    <p ng-show="myForm.email.$invalid && myForm.email.$dirty" class="help-block">email is required.</p>
+                </div>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error' : myForm.password.$invalid && myForm.password.$dirty }">
+                <label class="col-sm-2 control-label">Password</label>
+                <div class="col-sm-10">
+                    <input type="password" ng-model="user.password" name="password" ng-minlength="6" class="form-control" placeholder="Please input password" required />
+                    <p ng-show="myForm.password.$error.required && myForm.password.$dirty" class="help-block">password is required.</p>
+                    <p ng-show="myForm.password.$error.minlength && myForm.password.$dirty" class="help-block">password should be at least 6 characters.</p>
+                </div>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error' : (myForm.password2.$invalid && myForm.password2.$dirty) || (myForm.password2.$modelValue && myForm.password.$modelValue != myForm.password2.$modelValue)}">
+                <label class="col-sm-2 control-label">Confirm Password</label>
+                <div class="col-sm-10">
+                    <input type="password" ng-model="user.password2" name="password2" ng-minlength="6" class="form-control" placeholder="Please confirm password" required />
+                    <p ng-show="myForm.password2.$error.required && myForm.password2.$dirty" class="help-block">password confirm is required.</p>
+                    <p ng-show="myForm.password.$modelValue != myForm.password2.$modelValue && myForm.password2.$dirty" class="help-block">password not match.</p>
+                    <p ng-show="myForm.password2.$error.minlength && myForm.password2.$dirty" class="help-block">password should be at least 6 characters.</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Sign up</button>
+                </div>
+            </div>
+        </form>
+    </section>
+    <div class="col-sm-12">
+        <pre class="col-sm-4" style="border: 0"><code>{{myForm.email | json }}</code></pre>
+        <pre class="col-sm-4" style="border: 0"><code>{{myForm.password | json }}</code></pre>
+        <pre class="col-sm-4" style="border: 0"><code>{{myForm.password2 | json }}</code></pre>
+    </div>
+</div>
